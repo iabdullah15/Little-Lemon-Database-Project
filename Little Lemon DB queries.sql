@@ -43,6 +43,7 @@ having (oi.quantity) > 2;
 
 select * from ordersview;
 
+CREATE VIEW ORDERINFO as
 select c.customerid, c.customername, o.orderid, o.totalcost, m.itemname, cy.categoryname, oi.quantity
 from customer c join `order` o on c.customerid = o.customerid
 join orderitem oi on o.orderid = oi.orderid
@@ -50,3 +51,12 @@ join menuitem m on oi.itemid = m.itemid
 join category cy on m.categoryid = cy.categoryid
 Where o.totalCost > 35;
 
+select * from orderinfo;
+
+CREATE VIEW OrdersPlaced as
+select distinct m.itemname from `order` o
+join orderitem oi on o.orderid = oi.orderid
+join menuitem m on oi.itemid = m.itemid
+WHERE oi.quantity > 2;
+
+select * from ordersplaced;
