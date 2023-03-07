@@ -1,0 +1,5 @@
+Manager
+Chef
+Waiter
+Janitor
+Receptionist
